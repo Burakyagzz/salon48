@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Salon 48 · Erkek Kuaförü · Dalaman</title>
+<meta name="description" content="Salon 48 Erkek Kuaförü, Dalaman. WhatsApp ile kolay randevu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c0c0e; --bg2:#131316; --card:#19191d; --card2:#202025; --line:#28282e; --line2:#35353c;
+    --gold:#e2483d; --gold2:#ff6b5e; --text:#f5f5f7; --muted:#a1a1aa; --dim:#71717a;
+    --ok:#7ccf8a; --no:#e08a7a;
+    --serif:"Cormorant Garamond",Georgia,serif; --sans:Inter,system-ui,-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  svg{display:block}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+
+  /* demo bar */
+  .demo-bar{background:#08080a;border-bottom:1px solid var(--line);color:var(--dim);text-align:center;font-size:12px;padding:7px 12px;letter-spacing:.2px}
+  .demo-bar b{color:var(--gold);font-weight:600}
+
+  /* header */
+  header{position:sticky;top:0;z-index:30;background:rgba(12,12,14,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand-mark{width:40px;height:40px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold)}
+  .brand-name{font-family:var(--serif);font-size:24px;font-weight:600;letter-spacing:.5px;line-height:1}
+  .brand-name small{display:block;font-family:var(--sans);font-size:10px;letter-spacing:3px;color:var(--dim);text-transform:uppercase;margin-top:4px}
+  .nav-links{display:flex;gap:30px;font-size:14px;color:var(--muted)}
+  .nav-links a{transition:color .2s}
+  .nav-links a:hover{color:var(--text)}
+  .nav-right{display:flex;align-items:center;gap:14px}
+  .status{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);white-space:nowrap}
+  .status i{width:8px;height:8px;border-radius:50%;background:var(--dim)}
+  .status.open i{background:var(--ok);box-shadow:0 0 0 4px rgba(124,207,138,.15)}
+  .status.closed i{background:var(--no)}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--gold);color:#ffffff;font-weight:600;border-radius:999px;padding:15px 28px;font-size:15px;transition:transform .2s,background .2s,box-shadow .2s;box-shadow:0 8px 24px rgba(226,72,61,.18);white-space:nowrap}
+  .btn:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 12px 30px rgba(226,72,61,.28)}
+  .btn.sm{padding:10px 20px;font-size:13.5px}
+  .btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line2);box-shadow:none}
+  .btn.ghost:hover{border-color:var(--gold);color:var(--gold2)}
+
+  /* hero */
+  .hero{position:relative;padding:84px 0 96px;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:-20% -10% auto auto;width:720px;height:720px;background:radial-gradient(circle,rgba(226,72,61,.14),transparent 62%);pointer-events:none}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center;position:relative}
+  .eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:12px;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold);margin-bottom:24px}
+  .eyebrow::before{content:"";width:34px;height:1px;background:var(--gold)}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(46px,6.6vw,82px);line-height:.98;letter-spacing:-.5px;margin-bottom:26px}
+  h1 em{font-style:italic;color:var(--gold)}
+  .lead{color:var(--muted);font-size:clamp(16px,1.6vw,18.5px);max-width:500px;margin-bottom:36px}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+  .trust{display:flex;gap:36px;margin-top:48px;padding-top:30px;border-top:1px solid var(--line);max-width:520px}
+  .trust div{font-size:13px;color:var(--dim)}
+  .trust b{display:block;font-family:var(--serif);font-size:32px;color:var(--text);font-weight:600;line-height:1.1}
+
+  /* phone */
+  .phone-wrap{display:flex;justify-content:center;position:relative}
+  .phone{width:310px;border-radius:44px;background:#060607;border:1px solid var(--line2);padding:12px;box-shadow:0 40px 90px rgba(0,0,0,.6),0 0 0 8px #111113,0 0 0 9px var(--line)}
+  .screen{border-radius:34px;background:var(--bg2);overflow:hidden;height:560px;display:flex;flex-direction:column}
+  .chat-head{display:flex;align-items:center;gap:11px;padding:20px 18px 14px;border-bottom:1px solid var(--line);background:var(--card)}
+  .avatar{width:38px;height:38px;border-radius:50%;background:var(--gold);color:#ffffff;display:grid;place-items:center}
+  .chat-head b{font-size:14px;display:block;line-height:1.2}
+  .chat-head span{font-size:11.5px;color:var(--ok)}
+  .chat-body{flex:1;padding:18px 14px;display:flex;flex-direction:column;gap:9px;overflow:hidden}
+  .msg{max-width:82%;padding:10px 13px;border-radius:16px;font-size:13px;line-height:1.45;opacity:0;transform:translateY(8px);transition:opacity .35s,transform .35s}
+  .msg.show{opacity:1;transform:none}
+  .msg.u{align-self:flex-end;background:var(--gold);color:#ffffff;border-bottom-right-radius:5px}
+  .msg.b{align-self:flex-start;background:var(--card2);border:1px solid var(--line);border-bottom-left-radius:5px}
+  .msg.ok{border-color:rgba(124,207,138,.4)}
+  .typing{align-self:flex-start;display:none;gap:4px;padding:12px 14px;background:var(--card2);border:1px solid var(--line);border-radius:16px;border-bottom-left-radius:5px}
+  .typing.show{display:flex}
+  .typing i{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:blink 1s infinite}
+  .typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+  @keyframes blink{0%,100%{opacity:.3}50%{opacity:1}}
+  .chat-input{margin:10px;padding:12px 16px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:12.5px;color:var(--dim);display:flex;justify-content:space-between;align-items:center}
+  .chat-input span:last-child{width:28px;height:28px;border-radius:50%;background:var(--gold);display:grid;place-items:center;color:#ffffff}
+  .float-tag{position:absolute;background:var(--card);border:1px solid var(--line2);border-radius:14px;padding:12px 16px;font-size:12.5px;box-shadow:0 18px 40px rgba(0,0,0,.45)}
+  .float-tag b{display:block;font-size:14px;color:var(--text)}
+  .float-tag span{color:var(--muted)}
+  .ft1{left:-6px;top:90px}
+  .ft2{right:-10px;bottom:110px}
+  .ft2 b{color:var(--ok)}
+
+  /* marquee */
+  .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2);overflow:hidden;padding:20px 0}
+  .track{display:flex;gap:56px;width:max-content;animation:scroll 32s linear infinite;font-family:var(--serif);font-size:26px;font-style:italic;color:var(--muted)}
+  .track span{display:flex;align-items:center;gap:56px;white-space:nowrap}
+  .track span::after{content:"✦";font-style:normal;font-size:14px;color:var(--gold)}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* sections */
+  section{padding:110px 0}
+  .head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:54px;flex-wrap:wrap}
+  .kicker{font-size:12px;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:block}
+  h2{font-family:var(--serif);font-weight:600;font-size:clamp(36px,4.8vw,56px);line-height:1.02;letter-spacing:-.3px}
+  h2 em{font-style:italic;color:var(--gold)}
+  .head p{color:var(--muted);max-width:380px}
+
+  /* services */
+  .services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .svc{position:relative;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px 28px;transition:border-color .25s,transform .25s,background .25s}
+  .svc:hover{border-color:var(--gold);transform:translateY(-4px);background:var(--card2)}
+  .svc .ic{width:48px;height:48px;border-radius:14px;border:1px solid var(--line2);display:grid;place-items:center;color:var(--gold);margin-bottom:22px}
+  .svc h3{font-family:var(--serif);font-size:27px;font-weight:600;margin-bottom:6px}
+  .svc p{color:var(--muted);font-size:14px;margin-bottom:22px;min-height:44px}
+  .svc .meta{display:flex;justify-content:space-between;align-items:center;padding-top:18px;border-top:1px solid var(--line)}
+  .svc .dur{font-size:13px;color:var(--dim)}
+  .svc .price{font-family:var(--serif);font-size:30px;color:var(--gold);font-weight:600}
+  .svc.pop{border-color:rgba(226,72,61,.55);background:linear-gradient(180deg,rgba(226,72,61,.08),var(--card) 60%)}
+  .tag{position:absolute;top:22px;right:22px;font-size:10.5px;letter-spacing:1.5px;text-transform:uppercase;background:var(--gold);color:#ffffff;padding:5px 10px;border-radius:999px;font-weight:700}
+
+  /* why */
+  .why{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:22px;overflow:hidden}
+  .why-item{padding:36px 30px;border-right:1px solid var(--line)}
+  .why-item:last-child{border-right:0}
+  .why-item .ic{color:var(--gold);margin-bottom:22px}
+  .why-item h3{font-size:16.5px;margin-bottom:8px;font-weight:600}
+  .why-item p{color:var(--muted);font-size:14px}
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;counter-reset:s}
+  .step{position:relative;padding-top:26px;border-top:1px solid var(--line2)}
+  .step .n{font-family:var(--serif);font-size:64px;line-height:1;color:var(--gold);font-weight:600;margin-bottom:14px;font-style:italic}
+  .step h3{font-size:18px;margin-bottom:8px}
+  .step p{color:var(--muted);font-size:14.5px}
+
+  /* faq + contact */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+  details{border-bottom:1px solid var(--line);padding:22px 0}
+  details:first-of-type{border-top:1px solid var(--line)}
+  summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;font-weight:500;font-size:16px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-size:24px;color:var(--gold);font-weight:300;transition:transform .25s}
+  details[open] summary::after{transform:rotate(45deg)}
+  details p{color:var(--muted);font-size:14.5px;margin-top:12px;max-width:520px}
+
+  .contact{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:34px}
+  .contact h3{font-family:var(--serif);font-size:30px;font-weight:600;margin-bottom:6px}
+  .contact .status{margin-bottom:26px;font-size:13.5px}
+  .hours{width:100%;border-collapse:collapse;margin-bottom:26px}
+  .hours td{padding:9px 0;font-size:14px;color:var(--muted);border-bottom:1px dashed var(--line)}
+  .hours td:last-child{text-align:right;color:var(--text)}
+  .hours tr.today td{color:var(--gold2);font-weight:600}
+  .hours tr.today td:first-child::after{content:" · " attr(data-t);font-weight:400;color:var(--dim)}
+  .addr{display:flex;gap:14px;padding:18px;border-radius:16px;background:var(--bg2);border:1px solid var(--line);margin-bottom:22px;font-size:14px;color:var(--muted)}
+  .addr svg{color:var(--gold);flex:none;margin-top:2px}
+  .addr b{color:var(--text);display:block;font-weight:500}
+  .contact .btn{width:100%}
+
+  /* final */
+  .final{text-align:center;padding:120px 0;position:relative;overflow:hidden;border-top:1px solid var(--line)}
+  .final::before{content:"";position:absolute;left:50%;bottom:-300px;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(226,72,61,.16),transparent 65%);pointer-events:none}
+  .final h2{font-size:clamp(42px,6vw,76px);margin-bottom:18px}
+  .final p{color:var(--muted);margin-bottom:34px}
+
+  footer{border-top:1px solid var(--line);padding:30px 0;color:var(--dim);font-size:13px}
+  .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+  footer a{color:var(--gold)}
+
+  .fab{position:fixed;right:22px;bottom:22px;z-index:40}
+  .fab .pulse{width:9px;height:9px;border-radius:50%;background:#ffffff;animation:pulse 1.8s infinite}
+  @keyframes pulse{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.6);opacity:.4}}
+  .mbar{display:none}
+
+
+
+  /* language switch */
+  .lang{display:flex;border:1px solid var(--line2);border-radius:999px;overflow:hidden}
+  .lang button{background:none;border:0;color:var(--muted);font:600 12px var(--sans);padding:7px 10px;cursor:pointer;letter-spacing:.5px}
+  .lang button.on{background:var(--gold);color:#fff}
+  .lang button:hover:not(.on){color:var(--text)}
+  /* gallery */
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:220px;gap:14px}
+  .tile{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--card);display:flex;align-items:flex-end;padding:20px}
+  .tile.big{grid-row:span 2}
+  .tile::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 20%,rgba(226,72,61,.28),transparent 55%),repeating-linear-gradient(135deg,rgba(255,255,255,.025) 0 2px,transparent 2px 14px)}
+  .tile svg{position:absolute;top:22px;right:22px;color:rgba(255,255,255,.22)}
+  .tile span{position:relative;font-family:var(--serif);font-size:24px;font-weight:600}
+  .tile small{position:relative;display:block;font-family:var(--sans);font-size:12px;color:var(--muted);font-weight:400}
+  .gnote{margin-top:16px;font-size:12.5px;color:var(--dim);text-align:center}
+  .maps{width:100%;margin-top:10px}
+  .cal{display:flex;gap:8px;margin-top:10px}
+  .cal a{flex:1;text-align:center;font-size:12.5px;color:var(--muted);border:1px dashed var(--line2);border-radius:12px;padding:10px 6px}
+  .cal a:hover{color:var(--text);border-color:var(--gold)}
+  .cal.off{opacity:.35;pointer-events:none}
+  @media (max-width:980px){.gallery{grid-template-columns:1fr 1fr}}
+  @media (max-width:640px){.brand-name{white-space:nowrap;font-size:21px}.brand-name small{display:none}.brand-mark{width:34px;height:34px}.nav-right .btn.sm{display:none}.gallery{grid-auto-rows:170px}.tile span{font-size:20px}.lang button{padding:6px 8px;font-size:11px}}
+
+  /* booking modal */
+  .modal{position:fixed;inset:0;z-index:60;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(5,4,3,.72);backdrop-filter:blur(6px)}
+  .modal.open{display:flex}
+  .sheet{width:100%;max-width:520px;max-height:92vh;overflow:auto;background:var(--card);border:1px solid var(--line2);border-radius:24px;padding:28px;box-shadow:0 40px 100px rgba(0,0,0,.6);animation:up .3s ease}
+  @keyframes up{from{transform:translateY(20px);opacity:0}}
+  .sheet-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px}
+  .sheet h3{font-family:var(--serif);font-size:32px;font-weight:600;line-height:1.1}
+  .x{background:none;border:1px solid var(--line2);color:var(--muted);width:36px;height:36px;border-radius:50%;font-size:18px;cursor:pointer}
+  .x:hover{color:var(--text);border-color:var(--gold)}
+  .sheet .sub{color:var(--muted);font-size:14px;margin-bottom:22px}
+  .lbl{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin:20px 0 10px;display:block}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{background:var(--bg2);border:1px solid var(--line2);color:var(--text);border-radius:12px;padding:10px 14px;font-size:13.5px;cursor:pointer;font-family:inherit;transition:border-color .15s,background .15s}
+  .chip small{display:block;color:var(--dim);font-size:11.5px}
+  .chip:hover{border-color:var(--gold)}
+  .chip.on{background:var(--gold);border-color:var(--gold);color:#ffffff}
+  .chip.on small{color:rgba(255,255,255,.8)}
+  .chip:disabled{opacity:.3;cursor:not-allowed;text-decoration:line-through}
+  .days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+  .days .chip{padding:9px 4px;text-align:center}
+  .times{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+  .times .chip{padding:9px 2px;text-align:center}
+  .inp{width:100%;background:var(--bg2);border:1px solid var(--line2);color:var(--text);border-radius:12px;padding:13px 15px;font-size:15px;font-family:inherit;outline:none}
+  .inp:focus{border-color:var(--gold)}
+  .preview{margin-top:20px;background:#0f1a14;border:1px solid #23402f;border-radius:14px;padding:14px 16px;font-size:13.5px;color:#cfe8d6;white-space:pre-line}
+  .preview b{display:block;color:#7ccf8a;font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px}
+  .wa{width:100%;margin-top:18px;background:#25d366;color:#06200f;box-shadow:0 8px 24px rgba(37,211,102,.2)}
+  .wa:hover{background:#3ee07b}
+  .wa.off{opacity:.35;pointer-events:none}
+  .hint{text-align:center;font-size:12px;color:var(--dim);margin-top:10px}
+  @media (max-width:640px){.sheet{padding:22px;border-radius:20px}.times{grid-template-columns:repeat(4,1fr)}.sheet h3{font-size:28px}}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (max-width:980px){
+    .hero-grid{grid-template-columns:1fr;gap:56px}
+    .services{grid-template-columns:1fr 1fr}
+    .why-grid{grid-template-columns:1fr 1fr}
+    .why-item:nth-child(2){border-right:0}
+    .why-item:nth-child(-n+2){border-bottom:1px solid var(--line)}
+    .two{grid-template-columns:1fr}
+    .nav-links{display:none}
+  }
+  @media (max-width:640px){
+    .wrap{padding:0 20px}
+    .nav{height:64px}
+    .nav-right .status{display:none}
+    .hero{padding:56px 0 70px}
+    .trust{gap:24px}
+    .trust b{font-size:26px}
+    section{padding:80px 0}
+    .services,.steps{grid-template-columns:1fr}
+    .why-grid{grid-template-columns:1fr}
+    .why-item{border-right:0!important;border-bottom:1px solid var(--line)}
+    .why-item:last-child{border-bottom:0}
+    .phone{width:286px}
+    .screen{height:520px}
+    .ft1{left:-4px;top:40px}
+    .ft2{right:-4px}
+    .fab{display:none}
+    .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:40;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(12,12,14,.94);backdrop-filter:blur(10px);border-top:1px solid var(--line);gap:12px;align-items:center}
+    .mbar .btn{flex:1}
+    .mbar .status{display:flex}
+    footer{padding-bottom:100px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .track{animation:none}.reveal{opacity:1;transform:none;transition:none}.msg{transition:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="demo-bar"><b>Önizleme</b> · Salon 48 için hazırlanmış tasarım teklifidir. Fiyat ve saatler örnektir.</div>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="brand" aria-label="Salon 48">
+      <span class="brand-mark" style="font-weight:700;font-size:15px;letter-spacing:.5px">48</span>
+      <span class="brand-name">Salon 48<small>Erkek Kuaförü · Dalaman</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#hizmetler">Hizmetler</a>
+      <a href="#nasil">Randevu</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#sss">Sorular</a>
+      <a href="#iletisim">İletişim</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Dil"><button data-l="tr" class="on">TR</button><button data-l="en">EN</button><button data-l="ru">RU</button></div>
+      <span class="status js-status"><i></i><span>…</span></span>
+      <a class="btn sm book" href="#">Randevu Al</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div class="reveal">
+        <span class="eyebrow">Erkek Kuaförü · Dalaman</span>
+        <h1>Sıra beklemek<br><em>geçmişte</em> kaldı.</h1>
+        <p class="lead">Aramanıza, sıra beklemenize gerek yok. Hizmetinizi, gününüzü ve saatinizi seçin; randevu talebiniz WhatsApp'tan tek dokunuşla bize ulaşsın.</p>
+        <div class="hero-cta">
+          <a class="btn book" href="#">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="17" rx="3"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>
+            Hemen Randevu Al
+          </a>
+          <a class="btn ghost" href="#hizmetler">Hizmet & Fiyatlar</a>
+        </div>
+        <div class="trust">
+          <div><b>7/24</b>randevu talebi</div>
+          <div><b>30 sn</b>randevu süresi</div>
+          <div><b>1 tık</b>WhatsApp'tan</div>
+        </div>
+      </div>
+
+      <div class="phone-wrap reveal">
+        <div class="phone" aria-label="WhatsApp randevu örneği">
+          <div class="screen">
+            <div class="chat-head">
+              <div class="avatar" style="font-weight:700;font-size:13px">48</div>
+              <div><b>Salon 48</b><span>● WhatsApp</span></div>
+            </div>
+            <div class="chat-body" id="chat">
+              <div class="msg u">Merhaba, randevu almak istiyorum.<br><br>Hizmet: Saç + Sakal<br>Tarih: 12.11 Perşembe<br>Saat: 18:30<br>Ad: Emre</div>
+              <div class="msg b ok">Merhaba Emre Bey 👋<br>Randevunuz onaylandı ✓<br><b>Perşembe 18:30 · Saç + Sakal</b><br>Görüşmek üzere!</div>
+              <div class="msg u">Teşekkürler 🙏</div>
+              <div class="typing" id="typing"><i></i><i></i><i></i></div>
+            </div>
+            <div class="chat-input"><span>Mesajınızı yazın…</span><span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+          </div>
+        </div>
+        <div class="float-tag ft1"><b>Gece 23:40</b><span>Randevu talebi geldi</span></div>
+        <div class="float-tag ft2"><b>✓ Onaylandı</b><span>Tek mesajla</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="track">
+      <span>Saç Kesimi</span><span>Sakal Tıraşı</span><span>Sıcak Havlu</span><span>Cilt Bakımı</span><span>Damat Paketi</span><span>Çocuk Tıraşı</span>
+      <span>Saç Kesimi</span><span>Sakal Tıraşı</span><span>Sıcak Havlu</span><span>Cilt Bakımı</span><span>Damat Paketi</span><span>Çocuk Tıraşı</span>
+    </div>
+  </div>
+
+  <section id="hizmetler">
+    <div class="wrap">
+      <div class="head reveal">
+        <div><span class="kicker">Hizmetler</span><h2>Ustalık, <em>her detayda.</em></h2></div>
+        <p>Randevulu müşterilerimiz sıra beklemez. Süreler 30 dakikalık dilimlerle planlanır.</p>
+      </div>
+      <div class="services">
+        <div class="svc reveal">
+          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></svg></div>
+          <h3>Saç Kesimi</h3><p>Yıkama, kesim ve şekillendirme dahil.</p>
+          <div class="meta"><span class="dur">30 dk</span><span class="price">350 ₺</span></div>
+        </div>
+        <div class="svc pop reveal">
+          <span class="tag">En çok tercih</span>
+          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/></svg></div>
+          <h3>Saç + Sakal</h3><p>Kesim, sakal düzeltme ve sıcak havlu.</p>
+          <div class="meta"><span class="dur">60 dk</span><span class="price">500 ₺</span></div>
+        </div>
+        <div class="svc reveal">
+          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 20 15 9M15 9l3-3 2 2-3 3M15 9l2 2"/><path d="M6 14l4 4"/></svg></div>
+          <h3>Sakal Tıraşı</h3><p>Ustura ile, sıcak havlu eşliğinde.</p>
+          <div class="meta"><span class="dur">30 dk</span><span class="price">200 ₺</span></div>
+        </div>
+        <div class="svc reveal">
+          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M5 21c1-4 4-6 7-6s6 2 7 6"/></svg></div>
+          <h3>Çocuk Tıraşı</h3><p>12 yaş altı, sabırlı ve keyifli.</p>
+          <div class="meta"><span class="dur">30 dk</span><span class="price">250 ₺</span></div>
+        </div>
+        <div class="svc reveal">
+          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 3c3 4 6 6.5 6 10a6 6 0 0 1-12 0c0-3.5 3-6 6-10z"/></svg></div>
+          <h3>Cilt Bakımı</h3><p>Temizlik, buhar ve nemlendirici maske.</p>
+          <div class="meta"><span class="dur">30 dk</span><span class="price">300 ₺</span></div>
+        </div>
+        <div class="svc reveal">
+          <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l3 6-9 12L3 9z"/><path d="M3 9h18M9 3l3 18 3-18"/></svg></div>
+          <h3>Damat Paketi</h3><p>Saç, sakal, cilt bakımı ve özel şekillendirme.</p>
+          <div class="meta"><span class="dur">120 dk</span><span class="price">1.200 ₺</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="galeri" style="padding-top:0">
+    <div class="wrap">
+      <div class="head reveal">
+        <div><span class="kicker">Galeri</span><h2>Tarzınızı <em>bulun.</em></h2></div>
+        <p>Salonumuzdan son çalışmalar.</p>
+      </div>
+      <div class="gallery reveal">
+        <div class="tile big"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></svg><span>Skin Fade<small>Modern geçişli kesim</small></span></div>
+        <div class="tile"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></svg><span>Klasik Kesim<small>Zamansız stil</small></span></div>
+        <div class="tile"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></svg><span>Sakal Tasarımı<small>Ustura ile çizgi</small></span></div>
+        <div class="tile"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></svg><span>Damat Tıraşı<small>Özel gününüz için</small></span></div>
+        <div class="tile"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.1 15.9M14.5 14.5 20 20M8.1 8.1 12 12"/></svg><span>Salonumuz<small>Dalaman</small></span></div>
+      </div>
+      <p class="gnote">Önizleme: bu alana salonunuzun gerçek fotoğrafları yerleştirilecek.</p>
+    </div>
+  </section>
+
+  <section class="why">
+    <div class="wrap">
+      <div class="head reveal">
+        <div><span class="kicker">Neden Salon 48</span><h2>Zamanınıza <em>saygı.</em></h2></div>
+      </div>
+      <div class="why-grid reveal">
+        <div class="why-item">
+          <div class="ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <h3>7/24 randevu</h3><p>Salon kapalıyken bile randevu talebinizi bırakabilirsiniz.</p>
+        </div>
+        <div class="why-item">
+          <div class="ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <h3>Sıra yok</h3><p>Saatinizde gelin, doğrudan koltuğa oturun.</p>
+        </div>
+        <div class="why-item">
+          <div class="ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/></svg></div>
+          <h3>Hijyen</h3><p>Her müşteride tek kullanımlık malzeme ve steril ekipman.</p>
+        </div>
+        <div class="why-item">
+          <div class="ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 7h16M4 12h10M4 17h7"/></svg></div>
+          <h3>Net fiyat</h3><p>Sürpriz yok. Fiyatları önceden görürsünüz.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="nasil">
+    <div class="wrap">
+      <div class="head reveal">
+        <div><span class="kicker">Online Randevu</span><h2>Üç adım, <em>hazır.</em></h2></div>
+        <a class="btn book" href="#">Randevu Al</a>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><div class="n">01</div><h3>Hizmeti seçin</h3><p>Saç, sakal, cilt bakımı… Fiyatlar seçerken önünüzde.</p></div>
+        <div class="step reveal"><div class="n">02</div><h3>Gün ve saati seçin</h3><p>Önümüzdeki 7 günden size uyan saati işaretleyin.</p></div>
+        <div class="step reveal"><div class="n">03</div><h3>WhatsApp'tan gönderin</h3><p>Mesajınız hazır yazılmış olarak bize gelir, randevunuzu onaylarız.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sss" style="padding-top:0">
+    <div class="wrap two">
+      <div class="reveal">
+        <span class="kicker">Sık Sorulanlar</span>
+        <h2 style="margin-bottom:34px">Aklınıza <em>takılan.</em></h2>
+        <details open><summary>Randevuyu nasıl iptal ederim?</summary><p>WhatsApp'tan bize yazmanız yeterli, randevunuzu iptal eder ya da başka saate alırız.</p></details>
+        <details><summary>Randevusuz gelebilir miyim?</summary><p>Boş koltuk varsa elbette. Ama randevulu müşterilerimiz önceliklidir, beklememek için randevu almanızı öneririz.</p></details>
+        <details><summary>Gece de randevu talebi gönderebilir miyim?</summary><p>Evet. Talebiniz WhatsApp'a düşer, en kısa sürede onaylarız. Randevular çalışma saatleri içine verilir.</p></details>
+        <details><summary>Hangi ödeme yöntemlerini kabul ediyorsunuz?</summary><p>Nakit ve tüm kredi/banka kartları geçerlidir.</p></details>
+      </div>
+
+      <div class="contact reveal" id="iletisim">
+        <h3>Bizi ziyaret edin</h3>
+        <span class="status js-status"><i></i><span>…</span></span>
+        <table class="hours" id="hours">
+          <tr data-d="1"><td>Pazartesi</td><td>09:00 – 20:00</td></tr>
+          <tr data-d="2"><td>Salı</td><td>09:00 – 20:00</td></tr>
+          <tr data-d="3"><td>Çarşamba</td><td>09:00 – 20:00</td></tr>
+          <tr data-d="4"><td>Perşembe</td><td>09:00 – 20:00</td></tr>
+          <tr data-d="5"><td>Cuma</td><td>09:00 – 20:00</td></tr>
+          <tr data-d="6"><td>Cumartesi</td><td>09:00 – 20:00</td></tr>
+          <tr data-d="0"><td>Pazar</td><td>Kapalı</td></tr>
+        </table>
+        <div class="addr">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          <div><b>Dalaman, Muğla</b>Telefon / WhatsApp: 0538 081 39 27</div>
+        </div>
+        <a class="btn book" href="#">Randevu Al</a>
+        <a class="btn ghost maps" href="https://www.google.com/maps/search/?api=1&query=Salon+48+Erkek+Kuaf%C3%B6r%C3%BC+Dalaman" target="_blank" rel="noopener">📍 Yol Tarifi Al</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="final">
+    <div class="wrap reveal">
+      <span class="kicker">Koltuğunuz hazır</span>
+      <h2>Bir mesaj <em>uzaktayız.</em></h2>
+      <p>Randevunuzu şimdi oluşturun. 30 saniye sürer.</p>
+      <a class="btn book" href="#">Hemen Randevu Al</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© Salon 48 · Erkek Kuaförü · Dalaman</span>
+    <span>Tasarım: <a href="https://instagram.com/otomata.ai">Otomata</a></span>
+  </div>
+</footer>
+
+<a class="btn fab book" href="#"><span class="pulse"></span>Randevu Al</a>
+<div class="mbar"><span class="status js-status"><i></i><span>…</span></span><a class="btn book" href="#">Randevu Al</a></div>
+
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mt">
+  <div class="sheet">
+    <div class="sheet-top"><h3 id="mt">Randevu Al</h3><button class="x" id="close" aria-label="Kapat">✕</button></div>
+    <p class="sub">Seçimlerinizi yapın, randevu talebiniz WhatsApp'tan hazır mesaj olarak gitsin.</p>
+
+    <span class="lbl">Hizmet</span>
+    <div class="chips" id="svcs"></div>
+
+    <span class="lbl">Gün</span>
+    <div class="days" id="days"></div>
+
+    <span class="lbl">Saat</span>
+    <div class="times" id="times"></div>
+
+    <span class="lbl">Adınız</span>
+    <input class="inp" id="name" placeholder="Adınız Soyadınız" autocomplete="name">
+
+    <div class="preview" id="preview"><b>Gönderilecek mesaj</b><span id="ptext">Hizmet, gün ve saat seçin.</span></div>
+    <a class="btn wa off" id="wa" href="#" target="_blank" rel="noopener">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.6-.6-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.4z"/></svg>
+      WhatsApp'tan Gönder
+    </a>
+    <div class="cal off" id="cal"><a id="gcal" href="#" target="_blank" rel="noopener">📅 Google Takvim'e ekle</a><a id="ics" href="#" download="salon48-randevu.ics">🔔 Telefon takvimine ekle</a></div>
+    <p class="hint">Salon 48 mesajınızı görüp randevunuzu onaylar. Takvime eklerseniz randevudan 1 saat önce hatırlatılırsınız.</p>
+  </div>
+</div>
+
+<script>
+  var CHAT_URL = "https://burakyagzz.app.n8n.cloud/webhook/a46fab91-be96-45d3-8748-86dabd213303/chat";
+  document.querySelectorAll(".randevu").forEach(function (a) {
+    a.href = CHAT_URL; a.target = "_blank"; a.rel = "noopener";
+  });
+
+
+
+  // ---- Dil (TR / EN / RU) ----
+  var LANG = "tr";
+  var D = {
+  "Erkek Kuaförü · Dalaman":["Men's Barber · Dalaman","Мужской барбершоп · Даламан"],
+  "Hizmetler":["Services","Услуги"],"Randevu":["Booking","Запись"],"Galeri":["Gallery","Галерея"],"Sorular":["FAQ","Вопросы"],"İletişim":["Contact","Контакты"],
+  "Şu an açık · 20:00'a kadar":["Open now · until 20:00","Сейчас открыто · до 20:00"],
+  "Kapalı · 09:00'da açılıyor":["Closed · opens at 09:00","Закрыто · откроется в 09:00"],
+  "Kapalı · Pazartesi 09:00":["Closed · Monday 09:00","Закрыто · понедельник 09:00"],
+  "Kapalı · Yarın 09:00":["Closed · tomorrow 09:00","Закрыто · завтра 09:00"],
+  "Randevu Al":["Book Now","Записаться"],
+  "Sıra beklemek":["Waiting in line","Очереди"],"geçmişte":["is a thing","остались в"],"kaldı.":["of the past.","прошлом."],
+  "Aramanıza, sıra beklemenize gerek yok. Hizmetinizi, gününüzü ve saatinizi seçin; randevu talebiniz WhatsApp'tan tek dokunuşla bize ulaşsın.":["No calls, no queues. Pick your service, day and time, and your booking request reaches us on WhatsApp with one tap.","Без звонков и очередей. Выберите услугу, день и время, и заявка придёт к нам в WhatsApp одним нажатием."],
+  "Hemen Randevu Al":["Book Now","Записаться сейчас"],"Hizmet & Fiyatlar":["Services & Prices","Услуги и цены"],
+  "randevu talebi":["booking requests","приём заявок"],"30 sn":["30 sec","30 сек"],"randevu süresi":["to book","на запись"],"1 tık":["1 tap","1 клик"],"WhatsApp'tan":["via WhatsApp","через WhatsApp"],
+  "Ustalık,":["Craft","Мастерство"],"her detayda.":["in every detail.","в каждой детали."],
+  "Randevulu müşterilerimiz sıra beklemez. Süreler 30 dakikalık dilimlerle planlanır.":["Clients with a booking never wait. Appointments are planned in 30-minute slots.","Клиенты по записи не ждут. Время планируется слотами по 30 минут."],
+  "Saç Kesimi":["Haircut","Стрижка"],"Yıkama, kesim ve şekillendirme dahil.":["Wash, cut and styling included.","Мытьё, стрижка и укладка."],
+  "30 dk":["30 min","30 мин"],"60 dk":["60 min","60 мин"],"120 dk":["120 min","120 мин"],"En çok tercih":["Most popular","Популярное"],
+  "Saç + Sakal":["Hair + Beard","Стрижка + борода"],"Kesim, sakal düzeltme ve sıcak havlu.":["Cut, beard trim and hot towel.","Стрижка, оформление бороды и горячее полотенце."],
+  "Sakal Tıraşı":["Beard Shave","Бритьё бороды"],"Ustura ile, sıcak havlu eşliğinde.":["Straight razor with a hot towel.","Опасной бритвой с горячим полотенцем."],
+  "Çocuk Tıraşı":["Kids' Cut","Детская стрижка"],"12 yaş altı, sabırlı ve keyifli.":["Under 12, patient and fun.","До 12 лет, спокойно и весело."],
+  "Cilt Bakımı":["Skin Care","Уход за кожей"],"Temizlik, buhar ve nemlendirici maske.":["Cleansing, steam and hydrating mask.","Очищение, пар и увлажняющая маска."],
+  "Damat Paketi":["Groom Package","Пакет для жениха"],"Saç, sakal, cilt bakımı ve özel şekillendirme.":["Hair, beard, skin care and special styling.","Стрижка, борода, уход за кожей и укладка."],
+  "Tarzınızı":["Find","Найдите"],"bulun.":["your style.","свой стиль."],"Salonumuzdan son çalışmalar.":["Recent work from our salon.","Наши последние работы."],
+  "Modern geçişli kesim":["Modern fade","Современный фейд"],"Klasik Kesim":["Classic Cut","Классика"],"Zamansız stil":["Timeless style","Вне времени"],
+  "Sakal Tasarımı":["Beard Design","Дизайн бороды"],"Ustura ile çizgi":["Razor-sharp lines","Чёткие линии бритвой"],
+  "Damat Tıraşı":["Groom Shave","Бритьё жениха"],"Özel gününüz için":["For your big day","Для особого дня"],"Salonumuz":["Our Salon","Наш салон"],
+  "Önizleme: bu alana salonunuzun gerçek fotoğrafları yerleştirilecek.":["Preview: real salon photos will be placed here.","Превью: здесь будут реальные фото салона."],
+  "Neden Salon 48":["Why Salon 48","Почему Salon 48"],"Zamanınıza":["Respect for","Ценим"],"saygı.":["your time.","ваше время."],
+  "7/24 randevu":["24/7 booking","Запись 24/7"],"Salon kapalıyken bile randevu talebinizi bırakabilirsiniz.":["Leave a booking request even when we're closed.","Оставьте заявку даже когда мы закрыты."],
+  "Sıra yok":["No queue","Без очереди"],"Saatinizde gelin, doğrudan koltuğa oturun.":["Come at your time, go straight to the chair.","Приходите к своему времени и сразу в кресло."],
+  "Hijyen":["Hygiene","Гигиена"],"Her müşteride tek kullanımlık malzeme ve steril ekipman.":["Single-use supplies and sterile tools for every client.","Одноразовые материалы и стерильные инструменты."],
+  "Net fiyat":["Clear prices","Честные цены"],"Sürpriz yok. Fiyatları önceden görürsünüz.":["No surprises. See prices upfront.","Без сюрпризов. Цены известны заранее."],
+  "Online Randevu":["Online Booking","Онлайн-запись"],"Üç adım,":["Three steps,","Три шага —"],"hazır.":["done.","готово."],
+  "Hizmeti seçin":["Pick a service","Выберите услугу"],"Saç, sakal, cilt bakımı… Fiyatlar seçerken önünüzde.":["Hair, beard, skin care… Prices shown as you choose.","Стрижка, борода, уход… Цены видны сразу."],
+  "Gün ve saati seçin":["Pick day & time","Выберите день и время"],"Önümüzdeki 7 günden size uyan saati işaretleyin.":["Choose a time that suits you in the next 7 days.","Выберите удобное время на ближайшие 7 дней."],
+  "WhatsApp'tan gönderin":["Send via WhatsApp","Отправьте в WhatsApp"],"Mesajınız hazır yazılmış olarak bize gelir, randevunuzu onaylarız.":["Your message arrives ready-written and we confirm your booking.","Сообщение придёт готовым, и мы подтвердим запись."],
+  "Sık Sorulanlar":["FAQ","Частые вопросы"],"Aklınıza":["Good","Хорошие"],"takılan.":["questions.","вопросы."],
+  "Randevuyu nasıl iptal ederim?":["How do I cancel?","Как отменить запись?"],
+  "WhatsApp'tan bize yazmanız yeterli, randevunuzu iptal eder ya da başka saate alırız.":["Just message us on WhatsApp and we'll cancel or move your booking.","Напишите нам в WhatsApp — отменим или перенесём запись."],
+  "Randevusuz gelebilir miyim?":["Can I walk in?","Можно без записи?"],
+  "Boş koltuk varsa elbette. Ama randevulu müşterilerimiz önceliklidir, beklememek için randevu almanızı öneririz.":["Sure, if a chair is free. Booked clients come first, so we recommend booking.","Да, если есть свободное кресло. Но клиенты по записи в приоритете."],
+  "Gece de randevu talebi gönderebilir miyim?":["Can I send a request at night?","Можно оставить заявку ночью?"],
+  "Evet. Talebiniz WhatsApp'a düşer, en kısa sürede onaylarız. Randevular çalışma saatleri içine verilir.":["Yes. Your request lands in WhatsApp and we confirm it as soon as possible, within opening hours.","Да. Заявка придёт в WhatsApp, мы подтвердим её в рабочее время."],
+  "Hangi ödeme yöntemlerini kabul ediyorsunuz?":["Which payment methods do you accept?","Какие способы оплаты?"],
+  "Nakit ve tüm kredi/banka kartları geçerlidir.":["Cash and all credit/debit cards.","Наличные и все банковские карты."],
+  "Bizi ziyaret edin":["Visit us","Приходите к нам"],
+  "Pazartesi":["Monday","Понедельник"],"Salı":["Tuesday","Вторник"],"Çarşamba":["Wednesday","Среда"],"Perşembe":["Thursday","Четверг"],"Cuma":["Friday","Пятница"],"Cumartesi":["Saturday","Суббота"],"Pazar":["Sunday","Воскресенье"],
+  "Kapalı":["Closed","Закрыто"],"Telefon / WhatsApp: 0538 081 39 27":["Phone / WhatsApp: +90 538 081 39 27","Телефон / WhatsApp: +90 538 081 39 27"],
+  "📍 Yol Tarifi Al":["📍 Get Directions","📍 Как добраться"],
+  "Koltuğunuz hazır":["Your chair is ready","Ваше кресло готово"],"Bir mesaj":["Just one message","Всего одно сообщение"],"uzaktayız.":["away.","до нас."],
+  "Randevunuzu şimdi oluşturun. 30 saniye sürer.":["Book now. It takes 30 seconds.","Запишитесь сейчас. Это 30 секунд."],
+  "Tasarım:":["Design:","Дизайн:"],
+  "Seçimlerinizi yapın, randevu talebiniz WhatsApp'tan hazır mesaj olarak gitsin.":["Make your choices and your request is sent as a ready WhatsApp message.","Сделайте выбор, и заявка уйдёт готовым сообщением в WhatsApp."],
+  "Hizmet":["Service","Услуга"],"Gün":["Day","День"],"Saat":["Time","Время"],"Adınız":["Your name","Ваше имя"],
+  "Bugün":["Today","Сегодня"],"Yarın":["Tomorrow","Завтра"],
+  "Pzt":["Mon","Пн"],"Sal":["Tue","Вт"],"Çar":["Wed","Ср"],"Per":["Thu","Чт"],"Cum":["Fri","Пт"],"Cmt":["Sat","Сб"],"Paz":["Sun","Вс"],
+  "Gönderilecek mesaj":["Message to be sent (in Turkish for the salon)","Сообщение (на турецком для салона)"],
+  "Hizmet, gün ve saat seçin.":["Select a service, day and time.","Выберите услугу, день и время."],
+  "WhatsApp'tan Gönder":["Send via WhatsApp","Отправить в WhatsApp"],
+  "📅 Google Takvim'e ekle":["📅 Add to Google Calendar","📅 В Google Календарь"],"🔔 Telefon takvimine ekle":["🔔 Add to phone calendar","🔔 В календарь телефона"],
+  "Salon 48 mesajınızı görüp randevunuzu onaylar. Takvime eklerseniz randevudan 1 saat önce hatırlatılırsınız.":["Salon 48 will confirm your booking. Add it to your calendar to get a reminder 1 hour before.","Salon 48 подтвердит запись. Добавьте в календарь — напомним за 1 час."],
+  "Adınız Soyadınız":["Full name","Имя и фамилия"]
+  };
+  function T(s) { if (LANG === "tr" || !D[s]) return s; return D[s][LANG === "en" ? 0 : 1]; }
+  var ORIG = new WeakMap();
+  function applyLang() {
+    var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT), n;
+    while ((n = w.nextNode())) {
+      var p = n.parentElement;
+      if (!p || p.closest("script,style,.demo-bar,.phone,.marquee,.float-tag,#ptext")) continue;
+      if (!ORIG.has(n)) ORIG.set(n, n.nodeValue);
+      var o = ORIG.get(n), k = o.trim();
+      if (!k) continue;
+      var tr = T(k);
+      n.nodeValue = o.replace(k, tr);
+    }
+    var nm = document.getElementById("name"); if (nm) nm.placeholder = T("Adınız Soyadınız");
+    document.querySelectorAll("[data-t]").forEach(function (e) { e.setAttribute("data-t", T("Bugün")); });
+    document.documentElement.lang = LANG;
+  }
+  document.querySelectorAll(".lang button").forEach(function (b) {
+    b.addEventListener("click", function () {
+      LANG = b.getAttribute("data-l");
+      document.querySelectorAll(".lang button").forEach(function (x) { x.classList.toggle("on", x === b); });
+      applyLang();
+      var pt = document.getElementById("ptext"); if (pt && /seçin\.$|time\.$|время\.$/.test(pt.textContent)) pt.textContent = T("Hizmet, gün ve saat seçin.");
+    });
+  });
+
+  // ---- WhatsApp randevu formu ----
+  // Gerçek müşteride: berberin numarası, ülke koduyla, başında + ve 0 olmadan. Örn: "905321234567"
+  var WA_NUMBER = "905380813927";
+  (function () {
+    var SERVICES = [["Saç Kesimi","350 ₺",1],["Saç + Sakal","500 ₺",2],["Sakal Tıraşı","200 ₺",1],["Çocuk Tıraşı","250 ₺",1],["Cilt Bakımı","300 ₺",1],["Damat Paketi","1.200 ₺",4]];
+    var DN = ["Paz","Pzt","Sal","Çar","Per","Cum","Cmt"];
+    var DL = ["Pazar","Pazartesi","Salı","Çarşamba","Perşembe","Cuma","Cumartesi"];
+    var sel = { svc: null, day: null, time: null };
+    var $ = function (id) { return document.getElementById(id); };
+    var modal = $("modal");
+    function trNow() { return new Date(new Date().toLocaleString("en-US", { timeZone: "Europe/Istanbul" })); }
+
+    SERVICES.forEach(function (s, i) {
+      var b = document.createElement("button");
+      b.className = "chip"; b.type = "button";
+      b.innerHTML = s[0] + "<small>" + s[1] + "</small>";
+      b.onclick = function () { sel.svc = i; mark("svcs", b); update(); };
+      $("svcs").appendChild(b);
+    });
+
+    var now = trNow();
+    for (var k = 0; k < 7; k++) {
+      (function (k) {
+        var d = new Date(now); d.setDate(now.getDate() + k);
+        var b = document.createElement("button");
+        b.className = "chip"; b.type = "button";
+        b.innerHTML = (k === 0 ? "Bugün" : k === 1 ? "Yarın" : DN[d.getDay()]) + "<small>" + d.getDate() + "</small>";
+        if (d.getDay() === 0) b.disabled = true;
+        b.onclick = function () { sel.day = d; sel.time = null; mark("days", b); buildTimes(); update(); applyLang(); };
+        $("days").appendChild(b);
+      })(k);
+    }
+
+    function buildTimes() {
+      var box = $("times"); box.innerHTML = "";
+      var n = trNow(), today = sel.day && sel.day.toDateString() === n.toDateString();
+      for (var m = 540; m < 1200; m += 30) {
+        (function (m) {
+          var t = String(Math.floor(m / 60)).padStart(2, "0") + ":" + String(m % 60).padStart(2, "0");
+          var b = document.createElement("button");
+          b.className = "chip"; b.type = "button"; b.textContent = t;
+          if (!sel.day || (today && m <= n.getHours() * 60 + n.getMinutes() + 15)) b.disabled = true;
+          b.onclick = function () { sel.time = t; mark("times", b); update(); };
+          box.appendChild(b);
+        })(m);
+      }
+    }
+    buildTimes();
+
+    function mark(id, b) { $(id).querySelectorAll(".chip").forEach(function (c) { c.classList.remove("on"); }); b.classList.add("on"); }
+
+    function update() {
+      var name = $("name").value.trim();
+      if (sel.svc === null || !sel.day || !sel.time) { $("ptext").textContent = T("Hizmet, gün ve saat seçin."); $("wa").classList.add("off"); $("cal").classList.add("off"); return; }
+      var d = sel.day, date = d.getDate() + "." + String(d.getMonth() + 1).padStart(2, "0") + " " + DL[d.getDay()];
+      var msg = "Merhaba, randevu almak istiyorum.\n\n" +
+        "Hizmet: " + SERVICES[sel.svc][0] + "\n" +
+        "Tarih: " + date + "\n" +
+        "Saat: " + sel.time + "\n" +
+        "Ad: " + (name || "-");
+      $("ptext").textContent = msg;
+      $("wa").href = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg);
+      $("wa").classList.toggle("off", !name);
+      // takvim hatırlatması
+      var svc = SERVICES[sel.svc], hm = sel.time.split(":");
+      var st = new Date(d.getFullYear(), d.getMonth(), d.getDate(), +hm[0], +hm[1]);
+      var en = new Date(st.getTime() + svc[2] * 30 * 60000);
+      function f(x) { return x.getFullYear() + String(x.getMonth() + 1).padStart(2, "0") + String(x.getDate()).padStart(2, "0") + "T" + String(x.getHours()).padStart(2, "0") + String(x.getMinutes()).padStart(2, "0") + "00"; }
+      var title = "Salon 48 · " + svc[0], loc = "Salon 48, Dalaman, Muğla";
+      $("gcal").href = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent(title) + "&dates=" + f(st) + "/" + f(en) + "&ctz=Europe/Istanbul&location=" + encodeURIComponent(loc) + "&details=" + encodeURIComponent("Randevu: " + svc[0] + " · Tel: 0538 081 39 27");
+      var ics = ["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Salon48//TR","BEGIN:VEVENT","UID:" + Date.now() + "@salon48","DTSTAMP:" + f(new Date()),"DTSTART;TZID=Europe/Istanbul:" + f(st),"DTEND;TZID=Europe/Istanbul:" + f(en),"SUMMARY:" + title,"LOCATION:" + loc,"BEGIN:VALARM","TRIGGER:-PT1H","ACTION:DISPLAY","DESCRIPTION:" + title,"END:VALARM","END:VEVENT","END:VCALENDAR"].join("\r\n");
+      $("ics").href = "data:text/calendar;charset=utf-8," + encodeURIComponent(ics);
+      $("cal").classList.toggle("off", !name);
+    }
+    $("name").addEventListener("input", update);
+
+    function open(e) { e.preventDefault(); modal.classList.add("open"); document.body.style.overflow = "hidden"; }
+    function close() { modal.classList.remove("open"); document.body.style.overflow = ""; }
+    document.querySelectorAll(".book").forEach(function (a) { a.addEventListener("click", open); });
+    $("close").onclick = close;
+    modal.addEventListener("click", function (e) { if (e.target === modal) close(); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
+  })();
+
+  // Açık / kapalı durumu (Türkiye saati)
+  (function () {
+    var now = new Date(new Date().toLocaleString("en-US", { timeZone: "Europe/Istanbul" }));
+    var d = now.getDay(), m = now.getHours() * 60 + now.getMinutes();
+    var open = d !== 0 && m >= 540 && m < 1200;
+    var txt;
+    if (open) txt = "Şu an açık · 20:00'a kadar";
+    else if (d !== 0 && m < 540) txt = "Kapalı · 09:00'da açılıyor";
+    else txt = (d === 6 || d === 0) ? "Kapalı · Pazartesi 09:00" : "Kapalı · Yarın 09:00";
+    document.querySelectorAll(".js-status").forEach(function (el) {
+      el.classList.add(open ? "open" : "closed");
+      el.querySelector("span").textContent = txt;
+    });
+    var row = document.querySelector('#hours tr[data-d="' + d + '"]');
+    if (row) { row.classList.add("today"); row.firstElementChild.setAttribute("data-t", "Bugün"); }
+  })();
+
+  // Sohbet animasyonu
+  (function () {
+    var msgs = Array.prototype.slice.call(document.querySelectorAll("#chat .msg"));
+    var typing = document.getElementById("typing");
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) { msgs.forEach(function (m) { m.classList.add("show"); }); return; }
+    function run() {
+      msgs.forEach(function (m) { m.classList.remove("show"); });
+      var t = 500;
+      msgs.forEach(function (m) {
+        var bot = m.classList.contains("b");
+        if (bot) {
+          setTimeout(function () { m.parentNode.insertBefore(typing, m); typing.classList.add("show"); }, t);
+          t += 1100;
+        }
+        setTimeout(function () { typing.classList.remove("show"); m.classList.add("show"); }, t);
+        t += bot ? 900 : 1000;
+      });
+      setTimeout(run, t + 4000);
+    }
+    run();
+  })();
+
+  // Kaydırınca beliren bölümler
+  (function () {
+    var els = document.querySelectorAll(".reveal");
+    if (!("IntersectionObserver" in window)) { els.forEach(function (e) { e.classList.add("in"); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { threshold: .12 });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+</script>
+</body>
+</html>
